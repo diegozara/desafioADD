@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Alunos</title>
+    <title>Gestão de Alunos</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
 </head>
 <body>
-    <form action="salvaraluno" method="post">
+<div class="container my-2">
+    <h1>Gestão de Alunos</h1>
+    <hr>
+    <h2>Aluno</h2>
+    <form action="#" th:action="@{/alunos/cadastraraluno}" th:object="${aluno}" method="POST">
+        <input type="hidden" id="id" th:field="*{id}">
+        <input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
+        <input type="date" th:field="*{dataNascimento}" placeholder="Data Nascimento" class="form-control mb-4 col-4">
 
-        <label>Nome</label>
-        <input nome = "nome">
-        <input type = "submit" value="Salvar">
+        <button type="submit" class="btn btn-info col-2">Salvar</button>
     </form>
+    <hr>
+    <a th:href="@{/alunos/listaralunos}">Retornar para lista de Alunos</a>
+</div>
 </body>
 </html>

@@ -27,12 +27,15 @@
             <td th:text="${aluno.id}"></td>
             <td th:text="${aluno.nome}"></td>
             <td th:text="${aluno.dataNascimento}"></td>
+            <td>
+                <a th:href="@{/alunos/{id}(id=${aluno.id})}" class="btn btn-primary">Alterar</a>
+                <a th:href="@{/alunos/excluir/{id}(id=${aluno.id})}" class="btn btn-danger">Excluir</a>
+
+            </td>
         </tr>
         </tbody>
     </table>
-    <a th:href="@{cadastroalunos}" class="btn btn-primary btn-sm mb-3">Incluir</a>
-    <a th:href="@{index}" class="btn btn-primary btn-sm mb-3">Alterar</a>
-    <a th:href="@{index}" class="btn btn-primary btn-sm mb-3">Excluir</a>
+    <a th:href="@{/alunos/novoaluno}" class="btn btn-primary btn-sm mb-3">Incluir</a>
 </div>
 </body>
 </html>

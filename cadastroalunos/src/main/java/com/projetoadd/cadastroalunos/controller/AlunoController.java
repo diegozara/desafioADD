@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @Controller
 public class AlunoController {
@@ -21,33 +23,46 @@ public class AlunoController {
     }
 
 
-    @GetMapping("/listaralunos")
+    @GetMapping("/alunos/listaralunos")
     public String listarAlunos (Model model){
         model.addAttribute("listaAlunos",alunoService.listarTodos());
         return "listaralunos";
     }
 
- /*   @GetMapping("/{id}")
-    public Aluno buscarPorId (@PathVariable Integer id) throws AlunoNaoCadastradoException{
-        return alunoService.buscarPorId(id);
-    }*/
-
-    @PostMapping("/cadastroaluno")
-    public String inserir (@RequestBody Aluno aluno) {
-         alunoService.inserir(aluno);
+    @GetMapping("/alunos/novoaluno")
+    public String formInserir (@ModelAttribute("aluno") Aluno aluno) {
          return "cadastroaluno";
     }
 
-    @PutMapping("/{id}")
+    @GetMapping("/alunos/{id}")
+    public String alterarAluno(@PathVariable ("id") Integer id, Model model) throws AlunoNaoCadastradoException {
+        model.addAttribute("aluno", alunoService.buscarPorId(id));
+        return "cadastroaluno";
+    }
+
+    @GetMapping("/alunos/excluir/{id}")
+    public String excluirAluno (@PathVariable ("id") Integer id) throws AlunoNaoCadastradoException {
+        alunoService.deletar(id);
+        return "redirect:/alunos/listaralunos";
+    }
+
+    @PostMapping("/alunos/cadastraraluno")
+    public String inserirAluno (@ModelAttribute("aluno") Aluno aluno){
+        alunoService.inserir(aluno);
+        return "redirect:/alunos/listaralunos";
+    }
+
+
+  /*  @PutMapping("/{id}")
     public Aluno atualizar (@PathVariable Integer id, @RequestBody Aluno aluno) throws AlunoNaoCadastradoException {
         return alunoService.atualizar(id,aluno);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/alunos/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar (@PathVariable Integer id) throws AlunoNaoCadastradoException {
         alunoService.deletar(id);
-    }
+    }*/
 
     @GetMapping
     public String inicio (){

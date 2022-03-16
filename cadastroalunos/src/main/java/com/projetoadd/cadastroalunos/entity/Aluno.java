@@ -23,7 +23,7 @@ public class Aluno {
     private String nome;
 
     @Column(nullable = false)
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
 
     public Aluno(String nome, LocalDate dataNascimento) {
