@@ -22,6 +22,16 @@
 </p>
 
 ----
+Ao executação a API, para acessar as telas do thymeleaf, você deverá adicionar o endereço abaixo em seu navegador 
+
+```
+http://localhost:8080
+```
+Foi implementada uma classe para adicionar alguns dados ao Banco, desse modo, ao excutar a API alguns dados são inseridos automaticamente e já é possível ver as funcionalidades das telas referentes a entidade Aluno.
+
+*OBS:* Apenas a entidade Aluno tem as funcionalidades (CRUD) desenvolvidas no Front-End pelo thymeleaf. As demais entidades poderão ser testadas através do Postman  
+
+----
 
 <h3> ✨ Para Comunidade:</h3> 
 
