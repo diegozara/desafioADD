@@ -31,7 +31,15 @@ Foi implementada uma classe para adicionar alguns dados ao Banco, desse modo, ao
 
 *OBS:* Apenas a entidade Aluno tem as funcionalidades (CRUD) desenvolvidas no Front-End pelo thymeleaf. As demais entidades poderão ser testadas através do Postman  
 
+
 ----
+Para acessar a documentação juntamente com a interface do Swagger digite em seu navegador o endereço abaixo:
+
+````
+http://localhost:8080/swagger-ui.html
+````
+----
+
 
 <h3> ✨ Para Comunidade:</h3> 
 
