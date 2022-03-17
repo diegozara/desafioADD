@@ -26,8 +26,12 @@ public class Aluno {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
 
-    public Aluno(String nome, LocalDate dataNascimento) {
+    @ManyToOne
+    private Turma turma;
+
+    public Aluno(String nome, LocalDate dataNascimento, Turma turma) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
+        this.turma = turma;
     }
 }

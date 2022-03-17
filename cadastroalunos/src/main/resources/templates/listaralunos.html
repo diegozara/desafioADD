@@ -20,6 +20,7 @@
             <th>Código</th>
             <th>Nome</th>
             <th>Data de Nascimento</th>
+            <th>Turma</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
             <td th:text="${aluno.id}"></td>
             <td th:text="${aluno.nome}"></td>
             <td th:text="${aluno.dataNascimento}"></td>
+            <td th:text="${aluno.turma}"></td>
             <td>
                 <a th:href="@{/alunos/{id}(id=${aluno.id})}" class="btn btn-primary">Alterar</a>
                 <a th:href="@{/alunos/excluir/{id}(id=${aluno.id})}" class="btn btn-danger">Excluir</a>
